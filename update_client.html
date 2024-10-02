@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Client</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Update Client</h1>
+        <form action="/client/update/{{ client[0] }}" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ client[1] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="pm">PM:</label>
+                <input type="text" class="form-control" id="pm" name="pm" value="{{ client[2] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="sales_manager">Sales Manager:</label>
+                <input type="text" class="form-control" id="sales_manager" name="sales_manager" value="{{ client[3] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="coc_sme">CoC SME:</label>
+                <input type="text" class="form-control" id="coc_sme" name="coc_sme" value="{{ client[4] }}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Client</button>
+        </form>
+        <a href="/clients" class="btn btn-secondary mt-3">Back to Clients</a>
+    </div>
+</body>
+</html>
