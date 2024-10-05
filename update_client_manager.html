@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Client</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            let clientManagerId = document.getElementById('client_manager_id').value;
+            let clientManagerName = document.getElementById('client_manager_name').value;
+            let department = document.getElementById('department').value;
+            let projectsAssigned = document.getElementById('projects_assigned').value;
+            let errorMessage = '';
+
+            // Regular expression for alphanumeric check
+            let alphanumericRegex = /^[A-Za-z0-9]+$/;
+            let nameRegex = /\d/;  // Used to check if the name contains digits
+
+            if (nameRegex.test(clientManagerName)) {
+                errorMessage += 'Client Manager Name should not contain numbers.\n';
+            }
+
+            if (!alphanumericRegex.test(clientManagerId)) {
+                errorMessage += 'Client Manager ID can only contain letters and numbers.\n';
+            }
+
+            if (nameRegex.test(department)) {
+                errorMessage += 'Department should not contain numbers.\n';
+            }
+
+            if (projectsAssigned === '') {
+                errorMessage += 'Projects Assigned is required.\n';
+            }
+
+            if (errorMessage) {
+                document.getElementById('error-message').innerText = errorMessage;
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Update Client managers</h1>
+        <div id="error-message" class="error"></div>
+        <form action="/client/add" method="post" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="client_manager_id">Client Manager ID:</label>
+                <input type="text" class="form-control" id="client_manager_id" name="client_manager_id" required>
+            </div>
+            <div class="form-group">
+                <label for="client_manager_name">Client Manager Name:</label>
+                <input type="text" class="form-control" id="client_manager_name" name="client_manager_name" required>
+            </div>
+            <div class="form-group">
+                <label for="department">Update Department:</label>
+                <input type="text" class="form-control" id="department" name="department" required>
+            </div>
+            <div class="form-group">
+                <label for="projects_assigned">Update Projects Assigned:</label>
+                <input type="text" class="form-control" id="projects_assigned" name="projects_assigned" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Client manager</button>
+        </form>
+        <a href="/clients" class="btn btn-secondary mt-3">Back to Client managers</a>
+    </div>
+</body>
+</html>

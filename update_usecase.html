@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Usecase</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Update Service</h1>
+        <form action="/usecase/update/{{ usecases[0] }}" method="post">
+            <div class="form-group">
+                <label for="title">Service id:</label>
+                <input type="text" class="form-control" id="title" name="title"  required>
+            </div>
+            <div class="form-group">
+                <label for="description">Service name:</label>
+                <textarea class="form-control" id="description" name="description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="title">Client Manager</label>
+                <input type="text" class="form-control" id="title" name="title"  >
+            </div>
+            <div class="form-group">
+                <label for="title">Client Manager Contact Information</label>
+                <input type="text" class="form-control" id="title" name="title"  >
+            </div>
+           <!-- <a href="services.html">-->
+            <button type="submit" class="btn btn-primary">Update Services</button>
+        <!--</a>-->
+        </form>
+        <a href="services.html" class="btn btn-secondary mt-3">Back to Services</a>
+    </div>
+</body>
+</html>
