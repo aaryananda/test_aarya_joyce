@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Services</h1>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Service ID</th>
+                    <th>Client ID</th>
+                    <th>Start Date</th>
+                    <th>Status</th>
+                    <th>Custom Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Replace placeholder values with dynamic Flask data here -->
+                <tr>
+                    <td>1</td>
+                    <td>101</td>
+                    <td>2024-01-01</td>
+                    <td>Active</td>
+                    <td>$500</td>
+                    <td>
+                        <a href="/service/update/1" class="btn btn-warning btn-sm">Update</a>
+                        <a href="/service/delete/1" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>102</td>
+                    <td>2024-02-01</td>
+                    <td>Inactive</td>
+                    <td>$300</td>
+                    <td>
+                        <a href="/service/update/2" class="btn btn-warning btn-sm">Update</a>
+                        <a href="/service/delete/2" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>103</td>
+                    <td>2024-03-01</td>
+                    <td>Active</td>
+                    <td>$450</td>
+                    <td>
+                        <a href="/service/update/3" class="btn btn-warning btn-sm">Update</a>
+                        <a href="/service/delete/3" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="/service/add" class="btn btn-primary mt-3">Add Service</a>
+        <a href="/clients" class="btn btn-dark mt-3">Back To Clients</a>
+    </div>
+</body>
+</html>
