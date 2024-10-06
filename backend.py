@@ -61,7 +61,6 @@ def add_client():
 # Route to update an existing client
 @app.route('/client/update/<int:id>', methods=['GET', 'POST'])
 def update_client(id):
-    print(f"Received client ID: {id}")  # Debug: print the received client ID
     conn = get_db_connection()
     cur = conn.cursor()
 
@@ -81,7 +80,6 @@ def update_client(id):
                 (services_used ,id)
             )
             conn.commit()
-            print("Update successful!")  # Debug: confirm update was successful
         except Exception as e:
             print("An error occurred during update:", str(e))  # Debug: print error message
             return "An error occurred during update."
@@ -132,7 +130,7 @@ def delete_client(id):
 def get_usecases(client_id):
     conn = get_db_connection()
     cur = conn.cursor()
-    cur.execute("SELECT * FROM usecases WHERE client_id = %s", (client_id,))
+    cur.execute("SELECT * FROM client_service WHERE client_id = %s", (client_id,))
     usecases = cur.fetchall()
     cur.close()
     conn.close()
@@ -148,7 +146,7 @@ def add_usecase(client_id):
         conn = get_db_connection()
         cur = conn.cursor()
         cur.execute(
-            "INSERT INTO usecases (client_id, title, description) VALUES (%s, %s, %s)",
+            "INSERT INTO client_service (client_id, title, description) VALUES (%s, %s, %s)",
             (client_id, title, description))
         conn.commit()
         cur.close()
